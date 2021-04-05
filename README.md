@@ -1,6 +1,6 @@
 ---
 
-**_ Retro Hub - Live Chat Application _**
+** Retro Hub - Live Chat Application **
 
 ---
 
