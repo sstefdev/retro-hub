@@ -1,7 +1,5 @@
----
-
-**_ Retro Hub - Live Chat Application _**
-
----
+**                                   **
+** Retro Hub - Live Chat Application **
+**                                   **
 
 Made with React framework.
