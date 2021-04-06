@@ -103,7 +103,7 @@ class Login extends Component {
                 fluid
                 size="large"
               >
-                Submit
+                Login
               </Button>
             </Segment>
           </Form>

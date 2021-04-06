@@ -202,7 +202,7 @@ class Register extends Component {
                 fluid
                 size="large"
               >
-                Submit
+                Register
               </Button>
             </Segment>
           </Form>
