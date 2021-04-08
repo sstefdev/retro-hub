@@ -5,3 +5,34 @@ body,
   background: #eee;
   padding: 1em;
 }
+
+.ui.comments {
+  max-width: none !important;
+}
+
+.messages {
+  height: 47rem;
+  overflow-y: scroll;
+}
+
+.message__form {
+  position: fixed !important;
+  bottom: 1em;
+  margin-left: 320px !important;
+  left: 0;
+  right: 1em;
+  z-index: 200;
+}
+
+.message__self {
+  border-left: 2px solid green;
+  padding-left: 8px;
+}
+
+.message__image {
+  padding: 1em;
+}
+
+.progress__bar {
+  margin: 0.3em 0 0 0 !important;
+}

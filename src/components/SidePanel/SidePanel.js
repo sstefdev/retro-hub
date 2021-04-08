@@ -15,10 +15,14 @@ class SidePanel extends Component {
         fiex="left"
         vertical
         style={{
+          marginTop: 0,
+          marginBottom: 0,
+          marginRight: 0,
+          marginLeft: "4.2rem",
           background:
             "linear-gradient(180deg, rgba(8,48,22,1) 0%, rgba(47,184,95,1) 100%)",
           fontSize: "1.2rem",
-          margin: 0,
+
           borderRadius: 0,
         }}
       >

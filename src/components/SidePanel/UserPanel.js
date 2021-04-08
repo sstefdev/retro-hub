@@ -47,14 +47,28 @@ class UserPanel extends Component {
         }}
       >
         <Grid.Column>
-          <Grid.Row style={{ margin: 0 }}>
+          <Grid.Row
+            style={{
+              marginBottom: "1rem",
+              marginTop: "-1.5rem",
+              marginLeft: 0,
+              marginRight: 0,
+            }}
+          >
             <Header inverted floated="left" as="h2">
-              <Image src={Logo} style={{ width: "5rem" }} fluid />
+              <Image
+                src={Logo}
+                style={{ width: "5rem", marginBottom: "1rem" }}
+                fluid
+              />
               <Header.Content style={{ padding: 0 }}>Retro Hub</Header.Content>
             </Header>
 
             <Header
-              style={{ padding: ".85em", paddingTop: "2em" }}
+              style={{
+                padding: ".85em",
+                paddingTop: "2em",
+              }}
               as="h4"
               inverted
             >
