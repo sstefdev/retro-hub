@@ -47,13 +47,13 @@ class MessagesForm extends Component {
   };
 
   sendMessage = () => {
-    const { messagesRef } = this.props;
+    const { getMessagesRef } = this.props;
     const { message, channel } = this.state;
 
     if (message) {
       this.setState({ loading: true });
 
-      messagesRef
+      getMessagesRef()
         .child(channel.id)
         .push()
         .set(this.createMessage())
@@ -74,10 +74,18 @@ class MessagesForm extends Component {
     }
   };
 
+  getPath = () => {
+    if (this.props.isPrivateChannel) {
+      return `chat/private-${this.state.channel.id}`;
+    } else {
+      return "chat/public";
+    }
+  };
+
   uploadFile = (file, metadata) => {
     const pathToUpload = this.state.channel.id;
-    const ref = this.props.messagesRef;
-    const filePath = `chat/public/${uuidv4()}.jpg`;
+    const ref = this.props.getMessagesRef();
+    const filePath = `${this.getPath()}/${uuidv4()}.jpg`;
 
     this.setState(
       {
@@ -163,17 +171,18 @@ class MessagesForm extends Component {
           }
           placeholder="Write your message"
         />
-        <Button.Group icon width="2">
+        <Button.Group icon>
           <Button
             onClick={this.sendMessage}
             disabled={loading}
-            color="orange"
+            color="teal"
             content="Add Reply"
             labelPosition="left"
             icon="edit"
           />
           <Button
-            color="teal"
+            color="orange"
+            disabled={uploadState === "uploading"}
             onClick={this.openModal}
             content="Upload Media"
             labelPosition="right"

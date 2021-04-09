@@ -6,6 +6,10 @@ body,
   padding: 1em;
 }
 
+.menu {
+  padding-bottom: 2em;
+}
+
 .ui.comments {
   max-width: none !important;
 }
@@ -35,4 +39,25 @@ body,
 
 .progress__bar {
   margin: 0.3em 0 0 0 !important;
+}
+
+.ui.teal.button,
+.ui.orange.button {
+  width: 80% !important;
+}
+
+.ui.teal.button {
+  background-color: #2cae59 !important;
+}
+
+.ui.orange.button {
+  background-color: rgb(168, 168, 168) !important;
+}
+
+.ui.orange.button:hover {
+  color: #22fa6e !important;
+}
+
+.ui.teal.button:hover {
+  background-color: #2aa154 !important;
 }
