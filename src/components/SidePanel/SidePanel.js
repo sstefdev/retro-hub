@@ -8,7 +8,7 @@ import Starred from "./Starred";
 
 class SidePanel extends Component {
   render() {
-    const { currentUser } = this.props;
+    const { currentUser, primaryColor } = this.props;
 
     return (
       <Menu
@@ -21,14 +21,11 @@ class SidePanel extends Component {
           marginBottom: 0,
           marginRight: 0,
           marginLeft: "4.2rem",
-          background:
-            "linear-gradient(180deg, rgba(8,48,22,1) 0%, rgba(47,184,95,1) 100%)",
-          fontSize: "1.2rem",
-
+          background: primaryColor,
           borderRadius: 0,
         }}
       >
-        <UserPanel currentUser={currentUser} />
+        <UserPanel primaryColor={primaryColor} currentUser={currentUser} />
         <Starred currentUser={currentUser} />
         <Channels currentUser={currentUser} />
         <DirectMessages currentUser={currentUser} />

@@ -38,11 +38,12 @@ class UserPanel extends Component {
 
   render() {
     const { user } = this.state;
+    const { primaryColor } = this.props;
 
     return (
       <Grid
         style={{
-          background: "transparent",
+          background: { primaryColor },
           paddingTop: "1em",
         }}
       >

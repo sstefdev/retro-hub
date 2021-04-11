@@ -51,9 +51,28 @@ const channel_reducer = (state = initialChannelState, action) => {
   }
 };
 
+const initalColorState = {
+  primaryColor:
+    "linear-gradient(180deg, rgba(8,48,22,1) 0%, rgba(47,184,95,1) 100%)",
+  secondaryColor: "#eee",
+};
+
+const colors_reducer = (state = initalColorState, action) => {
+  switch (action.type) {
+    case actionTypes.SET_COLORS:
+      return {
+        primaryColor: action.payload.primaryColor,
+        secondaryColor: action.payload.secondaryColor,
+      };
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
   user: user_reducer,
   channel: channel_reducer,
+  colors: colors_reducer,
 });
 
 export default rootReducer;
