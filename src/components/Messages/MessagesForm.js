@@ -10,6 +10,7 @@ import ProgressBar from "./ProgressBar";
 class MessagesForm extends Component {
   state = {
     storageRef: firebase.storage().ref(),
+    typingRef: firebase.database().ref("typing"),
     uploadTask: null,
     uploadState: "",
     percentUploaded: 0,
@@ -27,6 +28,16 @@ class MessagesForm extends Component {
 
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
+  };
+
+  handleKeyDown = () => {
+    const { message, typingRef, channel, user } = this.state;
+
+    if (message) {
+      typingRef.child(channel.id).child(user.uid).set(user.displayName);
+    } else {
+      typingRef.child(channel.id).child(user.uid).remove();
+    }
   };
 
   createMessage = (fileUrl = null) => {
@@ -48,7 +59,7 @@ class MessagesForm extends Component {
 
   sendMessage = () => {
     const { getMessagesRef } = this.props;
-    const { message, channel } = this.state;
+    const { message, channel, typingRef, user } = this.state;
 
     if (message) {
       this.setState({ loading: true });
@@ -59,6 +70,7 @@ class MessagesForm extends Component {
         .set(this.createMessage())
         .then(() => {
           this.setState({ loading: false, message: "", errors: [] });
+          typingRef.child(channel.id).child(user.uid).remove();
         })
         .catch((err) => {
           console.error(err);
@@ -163,6 +175,7 @@ class MessagesForm extends Component {
           name="message"
           style={{ marginBottom: ".7em" }}
           onChange={this.handleChange}
+          onKeyDown={this.handleKeyDown}
           value={message}
           label={<Button icon={"add"} />}
           labelPosition="left"
